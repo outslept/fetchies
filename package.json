@@ -1,17 +1,8 @@
 {
   "name": "fetches",
+  "type": "module",
   "version": "1.0.0",
   "description": "A TypeScript HTTP client with built-in caching, validation, and retry mechanisms",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "unbuild",
-    "dev": "unbuild --stub",
-    "prepublishOnly": "npm run build",
-    "lint": "eslint .",
-    "lint-fix": "eslint . --fix",
-    "prepare": "npm run build"
-  },
   "keywords": [
     "http",
     "fetch",
@@ -23,7 +14,17 @@
     "retry",
     "upload"
   ],
-  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "prepare": "npm run build",
+    "postinstall": "simple-git-hooks"
+  },
   "dependencies": {
     "io-ts": "^2.2.22",
     "joi": "^17.13.3",
@@ -35,7 +36,15 @@
     "@antfu/eslint-config": "^4.2.1",
     "eslint": "^9.20.1",
     "eslint-plugin-format": "^1.0.1",
+    "lint-staged": "^15.4.3",
+    "simple-git-hooks": "^2.11.1",
     "typescript": "^5.7.3",
     "unbuild": "^3.3.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
