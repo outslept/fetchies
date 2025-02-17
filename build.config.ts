@@ -1,8 +1,8 @@
-import { defineBuildConfig } from 'unbuild';
+import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
   entries: [
-    'src/index'
+    'src/index',
   ],
   clean: true,
   declaration: true,
@@ -14,6 +14,6 @@ export default defineBuildConfig({
     'yup',
     'io-ts',
     'runtypes',
-    'joi'
-  ]
+    'joi',
+  ],
 })
